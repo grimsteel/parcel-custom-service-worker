@@ -18,4 +18,5 @@ describe("The service worker should cache", () => {
     '../../../node_modules/@faker-js/faker/dist/esm/index.mjs',
     '../../../node_modules/@faker-js/faker/dist/esm/chunk-\\w+.mjs'
   ]));
+  it("all the files if the configuration is not provided (no-config)", () => assertCachedFileContents("no-config", ['a.html', 'b.html'], ['a.html', 'a.js', 'b.html', 'b.js', 'c.js']));
 });

@@ -21,7 +21,7 @@ export default (new Runtime({
 
     return contents;
   },
-  apply({ bundle, bundleGraph, options, config, logger }) {
+  apply({ bundle, bundleGraph, options, config }) {
     if (bundle.env.context !== 'service-worker') {
       return [];
     }
@@ -76,10 +76,6 @@ export default (new Runtime({
       });
     // If the user hasn't set up config, cache everything
     else includedAssets = allAssets;
-
-    //let includedBundleIds = new Set(includedAssets.flatMap(asset => bundleGraph.getBundlesWithAsset(asset).map(bundle => bundle.id)));
-
-    //logger.verbose({message: JSON.stringify(includedAssets.map(el => toProjectPath(options.projectRoot, el.filePath)))});
 
     bundleGraph.traverseBundles(b => {
       // Don't include inline bundles or the service worker itself
