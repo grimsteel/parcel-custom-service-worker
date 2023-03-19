@@ -1,0 +1,17 @@
+{
+  "name": "pcsw-tests",
+  "version": "0.2.0",
+  "private": true,
+  "devDependencies": {
+    "@parcel/core": "^2.8.2",
+    "@parcel/fs": "^2.8.2",
+    "@parcel/types": "^2.8.2",
+    "@parcel/utils": "^2.8.3",
+    "mocha": "^10.2.0",
+    "parcel": "^2.8.2"
+  },
+  "scripts": {
+    "test": "mocha index.test.js -t 5000"
+  },
+  "type": "module"
+}
