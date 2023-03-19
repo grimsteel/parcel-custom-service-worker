@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "parcel build --no-source-maps",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf lib",
     "rebuild": "npm run clean && npm run build"
   }
 }

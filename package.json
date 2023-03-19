@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "clean": "rm -rf .parcel-cache",
-    "clean:all": "npm run clean --workspaces --include-workspace-root --if-present"
+    "clean:all": "npm run clean --workspaces --include-workspace-root --if-present",
+    "prepublishOnly": "npm -w packages/runtime run rebuild"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "filesToCache": [
+    "src/a.html",
+    "src/c.js"
+  ]
+}

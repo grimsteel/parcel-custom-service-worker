@@ -21,7 +21,7 @@ export default (new Runtime({
 
     return contents;
   },
-  apply({ bundle, bundleGraph, options, config }) {
+  apply({ bundle, bundleGraph, options, config, logger }) {
     if (bundle.env.context !== 'service-worker') {
       return [];
     }
@@ -77,16 +77,19 @@ export default (new Runtime({
     // If the user hasn't set up config, cache everything
     else includedAssets = allAssets;
 
-    let includedBundleIds = new Set(includedAssets.flatMap(asset => bundleGraph.getBundlesWithAsset(asset).map(bundle => bundle.id)));
+    //let includedBundleIds = new Set(includedAssets.flatMap(asset => bundleGraph.getBundlesWithAsset(asset).map(bundle => bundle.id)));
 
     //logger.verbose({message: JSON.stringify(includedAssets.map(el => toProjectPath(options.projectRoot, el.filePath)))});
 
     bundleGraph.traverseBundles(b => {
-      // Don't include inline bundles, the service worker iteself, or bundles that don't have any assets that the user wants to cache
-      if (b.bundleBehavior === 'inline' || b.id === bundle.id || !includedBundleIds.has(b.id)) {
-        return;
-      }
+      // Don't include inline bundles or the service worker itself
+      if (b.bundleBehavior === 'inline' || b.id === bundle.id) return;
 
+      // Don't include non-shared bundles that don't contain an asset that should be cached
+      if (b.getMainEntry()) {
+        if (includedAssets.every(asset => b.getMainEntry().id !== asset.id)) return;
+      // Don't include shared bundles that don't contain any assets that should be cached
+      } else if (includedAssets.every(asset => !bundleGraph.isAssetReferenced(b, asset))) return;
       manifest.push(urlJoin(b.target.publicUrl, b.name));
     }, undefined);
 

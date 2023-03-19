@@ -1,4 +1,4 @@
-import {  dirname, join, relative } from 'path';
+import { dirname, join, relative } from 'path';
 import { fileURLToPath } from 'url';
 import parcelFS from '@parcel/fs';
 const { NodeFS, MemoryFS, OverlayFS } = parcelFS;
@@ -107,16 +107,16 @@ export async function assertCachedFileContents(folderName, entryFilenames, asset
   const cachedBundles = bundleGraph.getBundles().filter(b => relativeManifest.includes(relative(distDir, b.filePath))); // filter out bundles which are not cached
   
   const usedAssets = [];
+  const assetFilenameRegex = new RegExp(`^${assetFilenames.map(f => f.replaceAll(".", "\\.")).join("|")}$`, 'i');
   for (const bundle of cachedBundles) {
-    for (const asset of bundle.getEntryAssets()) {
+    bundle.traverseAssets(asset => {
       let relativeFilename = relative(srcDir, asset.filePath);
-      if (assetFilenames.includes(relativeFilename)) // if it's expected to be cached
-        usedAssets.push(relativeFilename);
+      if (normalizeSeparators(relativeFilename).match(assetFilenameRegex)) // if it's expected to be cached
+        usedAssets.push(normalizeSeparators(relativeFilename));
       else assert.fail(`Asset ${relativeFilename} in ${relative(distDir, bundle.filePath)} is not expected to be cached`);
-    }
+    });
   }
-
-  const uncachedAssets = assetFilenames.filter(f => !usedAssets.includes(f));
+  const uncachedAssets = assetFilenames.filter(f => !usedAssets.find(a => a.match(f)));
   if (uncachedAssets.length > 0)
     assert.fail(`The following assets are expected to be cached but are not: ${uncachedAssets.join(", ")}`);
 }

@@ -1,0 +1,5 @@
+{
+  "filesToCache": [
+    { "file": "src/a.html", "includeChildren": true }
+  ]
+}

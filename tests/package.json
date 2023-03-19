@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@parcel/core": "^2.8.2",
     "@parcel/fs": "^2.8.2",
     "@parcel/types": "^2.8.2",
