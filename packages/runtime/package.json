@@ -1,0 +1,35 @@
+{
+  "name": "parcel-runtime-custom-service-worker",
+  "version": "0.2.0",
+  "description": "Runtime for parcel-custom-service-worker",
+  "main": "./lib/ServiceWorkerRuntime.js",
+  "source": "./src/ServiceWorkerRuntime.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimsteel/parcel-custom-service-worker.git"
+  },
+  "author": "grimsteel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grimsteel/parcel-custom-service-worker/issues"
+  },
+  "homepage": "https://github.com/grimsteel/parcel-custom-service-worker#readme",
+  "dependencies": {
+    "@parcel/plugin": "^2.7.0",
+    "@parcel/utils": "^2.7.0",
+    "@parcel/core": "^2.7.0"
+  },
+  "devDependencies": {
+    "@parcel/types": "^2.8.2",
+    "parcel": "^2.8.2"
+  },
+  "engines": {
+    "node": ">= 12.0.0",
+    "parcel": "^2.7.0"
+  },
+  "scripts": {
+    "build": "parcel build --no-source-maps",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build"
+  }
+}

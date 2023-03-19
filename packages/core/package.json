@@ -1,0 +1,32 @@
+{
+  "name": "parcel-plugin-custom-service-worker",
+  "version": "0.2.0",
+  "description": "Customize the resources cached in a service worker bundled by Parcel ",
+  "main": "service-worker.js",
+  "types": "service-worker.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimsteel/parcel-custom-service-worker.git"
+  },
+  "keywords": [
+    "parcel",
+    "plugin",
+    "service worker"
+  ],
+  "author": "grimsteel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grimsteel/parcel-custom-service-worker/issues"
+  },
+  "homepage": "https://github.com/grimsteel/parcel-custom-service-worker#readme",
+  "engines": {
+    "node": ">= 12.0.0",
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "parcel-runtime-custom-service-worker": "^0.2.0"
+  }
+}
