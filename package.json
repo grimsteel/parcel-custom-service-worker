@@ -8,7 +8,9 @@
   ],
   "scripts": {
     "clean": "rm -rf .parcel-cache",
-    "clean:all": "npm run clean --workspaces --include-workspace-root --if-present",
-    "prepublishOnly": "npm -w packages/runtime run rebuild"
+    "clean:all": "npm run clean --workspaces --include-workspace-root --if-present"
+  },
+  "devDependencies": {
+    "@lerna-lite/cli": "^1.17.0"
   }
 }
