@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-custom-service-worker",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Customize the resources cached in a service worker bundled by Parcel ",
   "main": "service-worker.js",
   "types": "service-worker.d.ts",
@@ -27,6 +27,6 @@
     "parcel": "^2.7.0"
   },
   "dependencies": {
-    "parcel-runtime-custom-service-worker": "^0.2.0"
+    "parcel-runtime-custom-service-worker": "^1.0.0"
   }
 }

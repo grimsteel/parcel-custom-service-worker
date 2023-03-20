@@ -1,6 +1,6 @@
 {
   "name": "parcel-runtime-custom-service-worker",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Runtime for parcel-custom-service-worker",
   "main": "./lib/ServiceWorkerRuntime.js",
   "source": "./src/ServiceWorkerRuntime.js",
@@ -15,9 +15,9 @@
   },
   "homepage": "https://github.com/grimsteel/parcel-custom-service-worker#readme",
   "dependencies": {
+    "@parcel/core": "^2.7.0",
     "@parcel/plugin": "^2.7.0",
-    "@parcel/utils": "^2.7.0",
-    "@parcel/core": "^2.7.0"
+    "@parcel/utils": "^2.7.0"
   },
   "devDependencies": {
     "@parcel/types": "^2.8.2",
