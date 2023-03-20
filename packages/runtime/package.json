@@ -1,6 +1,6 @@
 {
   "name": "parcel-runtime-custom-service-worker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Runtime for parcel-custom-service-worker",
   "main": "./lib/ServiceWorkerRuntime.js",
   "source": "./src/ServiceWorkerRuntime.js",
