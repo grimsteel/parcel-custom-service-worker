@@ -1,5 +1,11 @@
 # parcel-custom-service-worker
 
+![MIT License](https://img.shields.io/github/license/grimsteel/parcel-custom-service-worker?logo=code&style=for-the-badge&color=orange)
+![Github lerna version](https://img.shields.io/github/lerna-json/v/grimsteel/parcel-custom-service-worker?color=blueviolet&logo=lerna&style=for-the-badge)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/grimsteel/parcel-custom-service-worker/build-and-test.yml?event=push&label=test&logo=github%20actions&logoColor=white&style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/parcel-plugin-custom-service-worker?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/parcel-plugin-custom-service-worker)
+![Mocha](https://img.shields.io/badge/-mocha-c29d7f?logo=mocha&logoColor=c29d7f&labelColor=white&style=for-the-badge)
+
 A simple plugin that allows you to customize the resources cached in a [service worker bundled by Parcel](https://parceljs.org/languages/javascript/#service-workers).
 
 ## Installation
@@ -27,7 +33,7 @@ Create a `.service-worker-rc` in your project root. This file is a JSON file tha
 
 It contains a single property, `filesToCache`, which is an array of strings and objects.
 
-> ⚠️ **Warning**: If the `filesToCache` property is not present, the plugin cache **all files**.
+>  **Warning**: If the `filesToCache` property is not present, the plugin cache **all files**.
 
 **Example**:
 ```jsonc
